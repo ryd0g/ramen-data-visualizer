@@ -8,20 +8,12 @@
   </head>
   <style>
     /* Put the box in the center of the page */
-    body,
-    html {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     #svg {
       border: 1px solid;
     }
   </style>
   <body>
-    <svg id="svg" width="700" height="500"></svg>
+    <svg id="svg" width="600" height="600"></svg>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
@@ -32,21 +24,24 @@
           .data(data)
           .enter()
           .append('circle')
-          .attr('cx', (d) => parseFloat(d.x) * 2 + 250)
-          .attr('cy', (d) => parseFloat(d.y) * 2 + 250)
-          .attr('r', (d) => parseInt(d.High) * 0.1)
-          .attr('opacity', 0.25)
+          .attr('cx', (d) => parseFloat(d.x) * 1.5)
+          .attr('cy', (d) => parseFloat(d.y) * 1.5)
+          .attr('r', (d) => d.ReviewNum * 1.5)
+          .attr('opacity', 0.15)
           .attr('fill', (d) => {
-            if (d.Volume <= 5000000) {
+            if (d.Country === 'USA') {
               return 'cornflowerblue';
-            } else if (d.Volume > 5000000 && d.Volume <= 10000000) {
+            } else if (d.Country === 'Japan') {
               return 'gold';
-            } else if (d.Volume > 10000000 && d.Volume <= 100000000) {
+            } else if (d.Country === 'South Korea') {
               return 'green';
-            } else if (d.Volume > 100000000) {
+            } else if (d.Country === 'Taiwan') {
               return 'tomato';
+            } else if (d.Country === 'Thailand') {
+              return 'purple';
             }
-          });
+          })
+          .attr('stroke', 1.5);
       });
     </script>
   </body>
