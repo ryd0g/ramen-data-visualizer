@@ -41,7 +41,19 @@
               return 'purple';
             }
           })
-          .attr('stroke', 1.5);
+          .attr('stroke', (d) => {
+            if (d.Style === 'Cup') {
+              return 'red';
+            } else if (d.Style === 'Bowl') {
+              return 'blue';
+            } else if (d.Style === 'Pack') {
+              return 'orange';
+            } else if (d.Style === 'Tray') {
+              return 'white';
+            } else if (d.Style === 'Box') {
+              return 'yellow';
+            }
+          });
       });
     </script>
   </body>
