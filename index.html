@@ -8,12 +8,29 @@
   </head>
   <style>
     /* Put the box in the center of the page */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     #svg {
       border: 1px solid;
     }
+    h1 {
+      color: rgb(0, 0, 0);
+      padding: 0.5em 0 0.25em 0;
+      line-height: 1em;
+      margin: auto;
+      font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+        'Arial', sans-serif; /* Weights from Typekit: 300, 400 */
+    }
   </style>
   <body>
-    <svg id="svg" width="600" height="600"></svg>
+    <h1>🍜 Ramen Data Visualizer</h1>
+    <div id="visual">
+      <svg id="svg" width="600" height="600"></svg>
+    </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script>
